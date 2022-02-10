@@ -26,7 +26,6 @@ namespace EFGetStarted.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ParentOrderId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Type")
@@ -46,12 +45,15 @@ namespace EFGetStarted.Migrations
             modelBuilder.Entity("Order", b =>
                 {
                     b.HasOne("Order", "ParentOrder")
-                        .WithMany()
-                        .HasForeignKey("ParentOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Children")
+                        .HasForeignKey("ParentOrderId");
 
                     b.Navigation("ParentOrder");
+                });
+
+            modelBuilder.Entity("Order", b =>
+                {
+                    b.Navigation("Children");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EFGetStarted.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20220210213047_InitialCreate")]
+    [Migration("20220210224053_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,6 @@ namespace EFGetStarted.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ParentOrderId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Type")
@@ -48,12 +47,15 @@ namespace EFGetStarted.Migrations
             modelBuilder.Entity("Order", b =>
                 {
                     b.HasOne("Order", "ParentOrder")
-                        .WithMany()
-                        .HasForeignKey("ParentOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Children")
+                        .HasForeignKey("ParentOrderId");
 
                     b.Navigation("ParentOrder");
+                });
+
+            modelBuilder.Entity("Order", b =>
+                {
+                    b.Navigation("Children");
                 });
 #pragma warning restore 612, 618
         }

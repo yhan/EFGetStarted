@@ -15,7 +15,7 @@ namespace EFGetStarted.Migrations
                     Id = table.Column<string>(type: "text", nullable: false),
                     Type = table.Column<string>(type: "text", nullable: false),
                     VWAP = table.Column<double>(type: "double precision", nullable: false),
-                    ParentOrderId = table.Column<string>(type: "text", nullable: false)
+                    ParentOrderId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,8 +24,7 @@ namespace EFGetStarted.Migrations
                         name: "FK_Orders_Orders_ParentOrderId",
                         column: x => x.ParentOrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
