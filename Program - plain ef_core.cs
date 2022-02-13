@@ -24,7 +24,7 @@
 //var prodConso = new Thread(() =>
 //{
 //    var toBeUpdated = new HashSet<string>();
-    
+
 //    while (true)
 //    {
 //        var watch = Stopwatch.StartNew();
@@ -41,7 +41,7 @@
 //                toBeUpdated.Add(msg.Id);
 //            }
 //        }
-        
+
 //        Debug.WriteLine($"[bench] figure out new and update: {watch.ElapsedMilliseconds}");
 //        watch.Restart();
 
@@ -49,7 +49,7 @@
 //        var toBeUpdateOrders = alwaysOnDbContext.Orders.Where(x => toBeUpdated.Contains(x.Id));
 //        // cnx close
 //        Debug.WriteLine($"[bench] Select to be updated: {watch.ElapsedTicks}");
-        
+
 
 //        foreach (var ord in toBeUpdateOrders)
 //        {
