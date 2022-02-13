@@ -1,117 +1,79 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿//// See https://aka.ms/new-console-template for more information
 
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+//using System.ComponentModel.DataAnnotations.Schema;
+//using System.Diagnostics;
+//using System.Runtime.CompilerServices;
+//using Microsoft.EntityFrameworkCore;
 
-Console.WriteLine("Hello, World!");
+//Debug.WriteLine("Hello, World!");
+//Random rand = new Random();
+//string[] types = new[] { "SOR", "CLIENT" };
+//int batchSize = 4_000;
 
-using (var db = new OrderContext())
-{
-    // Create
-    Console.WriteLine("Inserting a new Order");
-    db.Add(new Order
-    {
-        Id = "helloOrder",
-        ParentOrder = null,
-        Type = "SOR",
-        VWAP = 42D
-    });
-    db.SaveChanges();
+//HashSet<string> _orderIds = new HashSet<string>();
 
-    // Read
-    Console.WriteLine("Querying for a blog");
-    var order = db.Orders
-        .OrderBy(b => b.Id)
-        .First();
+//var alwaysOnDbContext = new OrderContext();
 
-    // Update
-    Console.WriteLine("Create a parent order. And assign the create order to an existing order");
-    var parent = new Order
-    {
-        Id = "parentOrder",
-        ParentOrder = null,
-        Type = "Parent",
-        VWAP = 42D*023
-    };
-    order.Type = "ClientOrder";
-    db.Add(parent);
-    db.SaveChanges();
+//using (var db = new OrderContext())
+//    // Remove all
+//    db.Database.ExecuteSqlRaw(@"truncate table hello.""Orders""");
 
-    // Delete
-    Console.WriteLine("Delete the order");
-    db.Remove(order);
-    db.SaveChanges();
-}
+//using (var db = new OrderContext())
+//    _orderIds = db.Orders.Select(x => x.Id).ToHashSet();
 
-public class Order
-{
-    public string Id { get; set; }
-    public string Type { get; set; }
+//var prodConso = new Thread(() =>
+//{
+//    var toBeUpdated = new HashSet<string>();
+    
+//    while (true)
+//    {
+//        var watch = Stopwatch.StartNew();
+//        for (int i = 0; i < batchSize; i++)
+//        {
+//            var msg = RandomOder(rand.Next(0, batchSize));
+//            if (!_orderIds.Contains(msg.Id))
+//            {
+//                _orderIds.Add(msg.Id);
+//                alwaysOnDbContext.Add(msg);
+//            }
+//            else
+//            {
+//                toBeUpdated.Add(msg.Id);
+//            }
+//        }
+        
+//        Debug.WriteLine($"[bench] figure out new and update: {watch.ElapsedMilliseconds}");
+//        watch.Restart();
 
-    public double VWAP { get; set; }
+//        // cnx open
+//        var toBeUpdateOrders = alwaysOnDbContext.Orders.Where(x => toBeUpdated.Contains(x.Id));
+//        // cnx close
+//        Debug.WriteLine($"[bench] Select to be updated: {watch.ElapsedTicks}");
+        
 
-    public string? ParentOrderId { get; set; }
+//        foreach (var ord in toBeUpdateOrders)
+//        {
+//            // apply random update
+//            ord.VWAP *= rand.NextDouble();
+//        }
 
-    //[ForeignKey("ParentOrderId")]
-    public Order ParentOrder { get; set; }
-    public ICollection<Order> Children { get; set; }
+//        // round strip
+//        watch.Restart();
+//        alwaysOnDbContext.SaveChanges();
+//        Debug.WriteLine($"[bench] Save all: {watch.ElapsedMilliseconds}");
+//    }
+//});
+//prodConso.Name = "prod_conso";
+//prodConso.Start();
 
-}
 
-public class OrderContext : DbContext
-{
-    public DbSet<Order> Orders { get; set; }
 
-    // The following configures EF to create a Sqlite database file in the
-    // special "local" folder for your platform.
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseNpgsql(
-            "Server=127.0.0.1;Port=5432;Database=dbEfCore;User Id=postgres;Password=postgres;CommandTimeout=20;SearchPath=hello;");
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Order>(order =>
-        {
-            order.HasMany(e => e.Children)
-                .WithOne(e => e.ParentOrder)
-                .HasForeignKey(e => e.ParentOrderId)
-                .IsRequired(false); // allows FK to be null
-        });
-
-        /* Created table
-         *
-         *-- Table: hello.Orders
-           
-           -- DROP TABLE IF EXISTS hello."Orders";
-           
-           CREATE TABLE IF NOT EXISTS hello."Orders"
-           (
-           "Id" text COLLATE pg_catalog."default" NOT NULL,
-           "Type" text COLLATE pg_catalog."default" NOT NULL,
-           "VWAP" double precision NOT NULL,
-           "ParentOrderId" text COLLATE pg_catalog."default" NOT NULL,
-           CONSTRAINT "PK_Orders" PRIMARY KEY ("Id"),
-           CONSTRAINT "FK_Orders_Orders_ParentOrderId" FOREIGN KEY ("ParentOrderId")
-           REFERENCES hello."Orders" ("Id") MATCH SIMPLE
-           ON UPDATE NO ACTION
-           ON DELETE CASCADE
-           )
-           WITH (
-           OIDS = FALSE
-           )
-           TABLESPACE pg_default;
-           
-           ALTER TABLE IF EXISTS hello."Orders"
-           OWNER to postgres;
-           -- Index: IX_Orders_ParentOrderId
-           
-           -- DROP INDEX IF EXISTS hello."IX_Orders_ParentOrderId";
-           
-           CREATE INDEX IF NOT EXISTS "IX_Orders_ParentOrderId"
-           ON hello."Orders" USING btree
-           ("ParentOrderId" COLLATE pg_catalog."default" ASC NULLS LAST)
-           TABLESPACE pg_default;
-         *
-         */
-    }
-}
+//Order RandomOder(int i)
+//{
+//    return new Order
+//    {
+//        Id = i.ToString(),
+//        Type = types[rand.Next(0, 2)],
+//        VWAP = rand.NextDouble() * 100
+//    };
+//}
