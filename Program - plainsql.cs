@@ -61,7 +61,7 @@
 
 //    int affected = 0;
 //    using var cmd = new NpgsqlCommand(query.ToString(), connection);
-//        affected = cmd.ExecuteNonQuery();
+//    affected = cmd.ExecuteNonQuery();
 
 //    Debug.WriteLine($"[bench] Save {affected} orders: {watch.ElapsedMilliseconds}");
 //    query.Clear();

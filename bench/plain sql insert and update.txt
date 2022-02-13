@@ -1,0 +1,188 @@
+Hello, World!
+warn: 2/13/2022 17:09:09.704 CoreEventId.SensitiveDataLoggingEnabledWarning[10400] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+info: 2/13/2022 17:09:09.884 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'OrderContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: SensitiveDataLoggingEnabled 
+dbug: 2/13/2022 17:09:09.895 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 2/13/2022 17:09:09.900 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (6ms).
+dbug: 2/13/2022 17:09:09.905 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'dbEfCore' on server ''.
+Exception thrown: 'System.Net.Internals.SocketExceptionFactory.ExtendedSocketException' in System.Net.Sockets.dll
+CNX origin =Closed new=Open
+dbug: 2/13/2022 17:09:10.116 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+dbug: 2/13/2022 17:09:10.121 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='20']
+      truncate table hello."Orders"
+info: 2/13/2022 17:09:10.189 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (69ms) [Parameters=[], CommandType='Text', CommandTimeout='20']
+      truncate table hello."Orders"
+dbug: 2/13/2022 17:09:10.192 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+CNX origin =Open new=Closed
+dbug: 2/13/2022 17:09:10.197 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'dbEfCore' on server ''.
+dbug: 2/13/2022 17:09:10.200 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'OrderContext' disposed.
+info: 2/13/2022 17:09:10.217 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'OrderContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: SensitiveDataLoggingEnabled 
+dbug: 2/13/2022 17:09:10.244 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Order>()
+          .Select(x => x.Id)'
+dbug: 2/13/2022 17:09:10.376 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<string>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> 0
+              SELECT o.Id
+              FROM Orders AS o), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+          OrderContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: 2/13/2022 17:09:10.395 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 2/13/2022 17:09:10.397 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: 2/13/2022 17:09:10.398 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'dbEfCore' on server ''.
+CNX origin =Closed new=Open
+dbug: 2/13/2022 17:09:10.400 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+dbug: 2/13/2022 17:09:10.402 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='20']
+      SELECT o."Id"
+      FROM "Orders" AS o
+info: 2/13/2022 17:09:10.409 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='20']
+      SELECT o."Id"
+      FROM "Orders" AS o
+dbug: 2/13/2022 17:09:10.414 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 2/13/2022 17:09:10.415 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+CNX origin =Open new=Closed
+dbug: 2/13/2022 17:09:10.417 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'dbEfCore' on server ''.
+dbug: 2/13/2022 17:09:10.419 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'OrderContext' disposed.
+[bench] figure out new and update: 3
+[bench] Save 4000 orders: 210
+[bench] figure out new and update: 2
+[bench] Save 4000 orders: 234
+[bench] figure out new and update: 2
+[bench] Save 4000 orders: 247
+[bench] figure out new and update: 2
+[bench] Save 4000 orders: 250
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 246
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 233
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 226
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 238
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 228
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 231
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 223
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 228
+[bench] figure out new and update: 2
+[bench] Save 4000 orders: 228
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 228
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 230
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 231
+[bench] figure out new and update: 2
+[bench] Save 4000 orders: 229
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 243
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 228
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 229
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 225
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 228
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 231
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 227
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 230
+[bench] figure out new and update: 3
+[bench] Save 4000 orders: 234
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 225
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 236
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 235
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 230
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 237
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 244
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 229
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 227
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 238
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 234
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 247
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 235
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 227
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 235
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 235
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 227
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 235
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 230
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 229
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 227
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 230
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 227
+[bench] figure out new and update: 4
+[bench] Save 4000 orders: 257
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1
+[bench] Save 4000 orders: 232
+[bench] figure out new and update: 1

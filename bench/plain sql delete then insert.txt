@@ -1,0 +1,613 @@
+Hello, World!
+warn: 2/13/2022 18:44:33.854 CoreEventId.SensitiveDataLoggingEnabledWarning[10400] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+info: 2/13/2022 18:44:33.991 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'OrderContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: SensitiveDataLoggingEnabled 
+dbug: 2/13/2022 18:44:34.001 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 2/13/2022 18:44:34.005 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (5ms).
+dbug: 2/13/2022 18:44:34.009 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'dbEfCore' on server ''.
+Exception thrown: 'System.Net.Internals.SocketExceptionFactory.ExtendedSocketException' in System.Net.Sockets.dll
+CNX origin =Closed new=Open
+dbug: 2/13/2022 18:44:34.183 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+dbug: 2/13/2022 18:44:34.189 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='20']
+      truncate table hello."Orders"
+info: 2/13/2022 18:44:34.236 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (49ms) [Parameters=[], CommandType='Text', CommandTimeout='20']
+      truncate table hello."Orders"
+dbug: 2/13/2022 18:44:34.239 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+CNX origin =Open new=Closed
+dbug: 2/13/2022 18:44:34.244 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'dbEfCore' on server ''.
+dbug: 2/13/2022 18:44:34.246 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'OrderContext' disposed.
+info: 2/13/2022 18:44:34.264 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'OrderContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: SensitiveDataLoggingEnabled 
+dbug: 2/13/2022 18:44:34.289 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Order>()
+          .Select(x => x.Id)'
+dbug: 2/13/2022 18:44:34.420 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<string>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> 0
+              SELECT o.Id
+              FROM Orders AS o), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+          OrderContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: 2/13/2022 18:44:34.437 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 2/13/2022 18:44:34.438 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: 2/13/2022 18:44:34.440 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'dbEfCore' on server ''.
+CNX origin =Closed new=Open
+dbug: 2/13/2022 18:44:34.442 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+dbug: 2/13/2022 18:44:34.444 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='20']
+      SELECT o."Id"
+      FROM "Orders" AS o
+info: 2/13/2022 18:44:34.451 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='20']
+      SELECT o."Id"
+      FROM "Orders" AS o
+dbug: 2/13/2022 18:44:34.456 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 2/13/2022 18:44:34.457 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'dbEfCore' on server 'tcp://127.0.0.1:5432'.
+CNX origin =Open new=Closed
+dbug: 2/13/2022 18:44:34.459 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'dbEfCore' on server ''.
+dbug: 2/13/2022 18:44:34.460 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'OrderContext' disposed.
+Exception thrown: 'System.Net.Internals.SocketExceptionFactory.ExtendedSocketException' in System.Net.Sockets.dll
+[bench] figure out new and update: 3
+[bench] Save 4661 orders: 163
+[bench] figure out new and update: 2
+[bench] Save 4930 orders: 145
+[bench] figure out new and update: 1
+[bench] Save 4999 orders: 145
+[bench] figure out new and update: 1
+[bench] Save 5041 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5002 orders: 124
+[bench] figure out new and update: 1
+[bench] Save 5062 orders: 136
+[bench] figure out new and update: 2
+[bench] Save 5100 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5110 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 4960 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5057 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5098 orders: 150
+[bench] figure out new and update: 1
+[bench] Save 5150 orders: 139
+[bench] figure out new and update: 1
+[bench] Save 5138 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5028 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5040 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5018 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5070 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 141
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5094 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 131
+[bench] figure out new and update: 3
+[bench] Save 5048 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5088 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5012 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 4996 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 4954 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5044 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5032 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 4986 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 4994 orders: 128
+[bench] figure out new and update: 2
+[bench] Save 5108 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5110 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 163
+[bench] figure out new and update: 1
+[bench] Save 5046 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5024 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5048 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5098 orders: 141
+[bench] figure out new and update: 1
+[bench] Save 5028 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 4998 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5080 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5066 orders: 35563
+[bench] figure out new and update: 37
+[bench] Save 5064 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5038 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 138
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 155
+[bench] figure out new and update: 1
+[bench] Save 4984 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5014 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5110 orders: 176
+[bench] figure out new and update: 1
+[bench] Save 5030 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5038 orders: 121
+[bench] figure out new and update: 1
+[bench] Save 5062 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5092 orders: 130
+[bench] figure out new and update: 2
+[bench] Save 5054 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5026 orders: 149
+[bench] figure out new and update: 1
+[bench] Save 5008 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5010 orders: 118
+[bench] figure out new and update: 1
+[bench] Save 5020 orders: 138
+[bench] figure out new and update: 1
+[bench] Save 5084 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 122
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 142
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5088 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 129
+[bench] figure out new and update: 2
+[bench] Save 5072 orders: 145
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5044 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5046 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5046 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5126 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5082 orders: 170
+[bench] figure out new and update: 1
+[bench] Save 5082 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5170 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5036 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5146 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5100 orders: 143
+[bench] figure out new and update: 1
+[bench] Save 5096 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5040 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5148 orders: 131
+[bench] figure out new and update: 2
+[bench] Save 5010 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5046 orders: 142
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5016 orders: 148
+[bench] figure out new and update: 1
+[bench] Save 5026 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5104 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5098 orders: 143
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5034 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 169
+[bench] figure out new and update: 3
+[bench] Save 5010 orders: 139
+[bench] figure out new and update: 1
+[bench] Save 4968 orders: 124
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5006 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5116 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5016 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5094 orders: 144
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 4982 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 4986 orders: 132
+[bench] figure out new and update: 2
+[bench] Save 5040 orders: 118
+[bench] figure out new and update: 1
+[bench] Save 5046 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5134 orders: 145
+[bench] figure out new and update: 1
+[bench] Save 5058 orders: 121
+[bench] figure out new and update: 1
+[bench] Save 5110 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 4948 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 123
+[bench] figure out new and update: 1
+[bench] Save 5056 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 140
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 123
+[bench] figure out new and update: 1
+[bench] Save 5076 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 122
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 157
+[bench] figure out new and update: 1
+[bench] Save 4966 orders: 147
+[bench] figure out new and update: 1
+[bench] Save 5030 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5032 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5106 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5074 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5040 orders: 133
+[bench] figure out new and update: 3
+[bench] Save 5022 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5108 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5142 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5098 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 135
+[bench] figure out new and update: 2
+[bench] Save 5050 orders: 138
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 123
+[bench] figure out new and update: 1
+[bench] Save 5000 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5072 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5030 orders: 124
+[bench] figure out new and update: 1
+[bench] Save 5116 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 144
+[bench] figure out new and update: 1
+[bench] Save 5140 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5104 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5030 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5114 orders: 123
+[bench] figure out new and update: 1
+[bench] Save 5136 orders: 166
+[bench] figure out new and update: 1
+[bench] Save 5066 orders: 145
+[bench] figure out new and update: 1
+[bench] Save 5104 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5040 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5070 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5034 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5008 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5080 orders: 146
+[bench] figure out new and update: 1
+[bench] Save 5090 orders: 144
+[bench] figure out new and update: 1
+[bench] Save 4968 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5022 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 137
+[bench] figure out new and update: 3
+[bench] Save 5098 orders: 174
+[bench] figure out new and update: 1
+[bench] Save 5116 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5040 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5036 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 4978 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5038 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5074 orders: 158
+[bench] figure out new and update: 1
+[bench] Save 5018 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 4990 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 169
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5028 orders: 160
+[bench] figure out new and update: 2
+[bench] Save 5022 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5024 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5014 orders: 126
+[bench] figure out new and update: 1
+[bench] Save 5020 orders: 145
+[bench] figure out new and update: 1
+[bench] Save 5052 orders: 124
+[bench] figure out new and update: 1
+[bench] Save 5112 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 4980 orders: 121
+[bench] figure out new and update: 1
+[bench] Save 5030 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5008 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5100 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 122
+[bench] figure out new and update: 1
+[bench] Save 5096 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 124
+[bench] figure out new and update: 1
+[bench] Save 5090 orders: 132
+[bench] figure out new and update: 2
+[bench] Save 5044 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5050 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 4966 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5048 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5122 orders: 169
+[bench] figure out new and update: 1
+[bench] Save 5104 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5004 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5052 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5094 orders: 136
+[bench] figure out new and update: 2
+[bench] Save 4992 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5036 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 142
+[bench] figure out new and update: 1
+[bench] Save 4988 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 129
+[bench] figure out new and update: 2
+[bench] Save 5072 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5034 orders: 129
+[bench] figure out new and update: 1
+[bench] Save 5104 orders: 138
+[bench] figure out new and update: 1
+[bench] Save 5056 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5018 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5080 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5094 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5084 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5034 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 4986 orders: 157
+[bench] figure out new and update: 1
+[bench] Save 5070 orders: 134
+[bench] figure out new and update: 2
+[bench] Save 5024 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5126 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5130 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5016 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 144
+[bench] figure out new and update: 1
+[bench] Save 5092 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5024 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5086 orders: 147
+[bench] figure out new and update: 1
+[bench] Save 4984 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5128 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 5098 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5056 orders: 130
+[bench] figure out new and update: 1
+[bench] Save 5078 orders: 147
+[bench] figure out new and update: 1
+[bench] Save 5016 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5062 orders: 133
+[bench] figure out new and update: 1
+[bench] Save 5088 orders: 137
+[bench] figure out new and update: 2
+[bench] Save 5106 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5036 orders: 142
+[bench] figure out new and update: 1
+[bench] Save 5048 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5110 orders: 134
+[bench] figure out new and update: 1
+[bench] Save 5114 orders: 178
+[bench] figure out new and update: 1
+[bench] Save 5028 orders: 121
+[bench] figure out new and update: 1
+[bench] Save 5074 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5060 orders: 128
+[bench] figure out new and update: 1
+[bench] Save 5072 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5026 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5042 orders: 125
+[bench] figure out new and update: 1
+[bench] Save 5068 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 4996 orders: 131
+[bench] figure out new and update: 2
+[bench] Save 5024 orders: 143
+[bench] figure out new and update: 1
+[bench] Save 5024 orders: 127
+[bench] figure out new and update: 1
+[bench] Save 5038 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5058 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5064 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5048 orders: 137
+[bench] figure out new and update: 1
+[bench] Save 4990 orders: 158
+[bench] figure out new and update: 1
+[bench] Save 5058 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 5054 orders: 135
+[bench] figure out new and update: 1
+[bench] Save 4980 orders: 132
+[bench] figure out new and update: 1
+[bench] Save 5048 orders: 131
+[bench] figure out new and update: 1
+[bench] Save 5066 orders: 136
+[bench] figure out new and update: 1
+[bench] Save 5032 orders: 138
+[bench] figure out new and update: 1
