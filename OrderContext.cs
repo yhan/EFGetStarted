@@ -5,6 +5,8 @@ using Npgsql;
 public class OrderContext : DbContext
 {
     public DbSet<Order> Orders { get; set; }
+    
+    public DbSet<Blog> Blogs { get; set; }
 
     // The following configures EF to create a Sqlite database file in the
     // special "local" folder for your platform.
@@ -36,6 +38,9 @@ public class OrderContext : DbContext
                 .HasForeignKey(e => e.ParentOrderId)
                 .IsRequired(false); // allows FK to be null
         });
+
+        modelBuilder.HasPostgresEnum<Mood>();
+        modelBuilder.Entity<Blog>(g => g.HasKey(g => g.Id));
 
         /* Created table
          *
@@ -74,3 +79,11 @@ public class OrderContext : DbContext
          */
     }
 }
+
+public class Blog
+{
+    public int Id { get; set; }
+    public Mood Mood { get; set; }
+}
+
+public enum Mood { Happy, Sad }
