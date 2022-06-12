@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
+namespace EFGetStarted;
+
 public abstract class ConfigureDbContext : DbContext
 {
     protected ConfigureDbContext()
@@ -20,7 +22,7 @@ public abstract class ConfigureDbContext : DbContext
         };
 
         options.UseNpgsql(conn)
-            .LogTo(s => Debug.WriteLine(s))
+            .LogTo(Console.WriteLine)
             .EnableSensitiveDataLogging();
     }
 }

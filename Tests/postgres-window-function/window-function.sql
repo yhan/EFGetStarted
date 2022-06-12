@@ -1,4 +1,9 @@
-﻿-- avg salary of the whole company
+﻿/*******
+  POSTGRES WINDOW FUNCTION
+  https://www.postgresql.org/docs/current/tutorial-window.html  
+  *****/
+
+-- avg salary of the whole company
 select "EmpNo", "Salary", avg("Salary") over()
 from "EmployeeSalaries"
 order by "EmpNo";

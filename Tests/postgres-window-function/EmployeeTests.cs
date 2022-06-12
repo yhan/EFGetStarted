@@ -2,6 +2,11 @@
 
 namespace Tests;
 
+public class Consts
+{
+    public const string ConnString = "Server=127.0.0.1;Port=5432;Database=dbEfCore;User Id=postgres;Password=postgres;CommandTimeout=20;SearchPath=hello;";
+}
+
 /// <summary>
 /// postgres window function
 /// https://www.postgresql.org/docs/current/tutorial-window.html
@@ -13,8 +18,7 @@ public class EmployeeTests
     private static readonly string[] Departments = {
         "develop", "personnel", "sales"
     };
-    private const string ConnString = "Server=127.0.0.1;Port=5432;Database=dbEfCore;User Id=postgres;Password=postgres;CommandTimeout=20;SearchPath=hello;";
-    
+
     [Test]
     public void Ingest()
     {
@@ -30,7 +34,8 @@ public class EmployeeTests
             salaries.Add(salary);
         }
 
-        using var context = new EmployeeContextFactory().CreateDbContext(new[] { ConnString });
+        using var context = new EmployeeContextFactory().CreateDbContext(new[] {
+            Consts.ConnString });
         context.BulkInsertOrUpdate(salaries);
     }
 }

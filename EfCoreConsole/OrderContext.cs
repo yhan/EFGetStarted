@@ -1,9 +1,6 @@
-﻿using System.Diagnostics;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-using Npgsql;
+﻿using Microsoft.EntityFrameworkCore;
 
-
+namespace EFGetStarted;
 
 public class OrderContext : ConfigureDbContext
 {

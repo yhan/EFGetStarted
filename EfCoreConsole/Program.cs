@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EFGetStarted;
+using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("hello");
 

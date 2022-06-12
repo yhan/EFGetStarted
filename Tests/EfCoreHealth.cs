@@ -1,3 +1,5 @@
+using EFGetStarted;
+
 namespace Tests;
 
 public class Tests
