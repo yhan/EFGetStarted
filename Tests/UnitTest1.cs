@@ -24,4 +24,14 @@ public class Tests
             TestContext.WriteLine(blog);
         }
     }
+
+    [Test]
+    public void EfCoreHealth_WithDbContextFactory()
+    {
+        using var dbContext = new OrderContext();
+        foreach (var blog in dbContext.Blogs)
+        {
+            TestContext.WriteLine(blog);
+        }
+    }
 }

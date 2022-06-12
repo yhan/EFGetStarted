@@ -1,33 +1,17 @@
 ﻿using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Npgsql;
 
-public class OrderContext : DbContext
+
+
+public class OrderContext : ConfigureDbContext
 {
     public DbSet<Order> Orders { get; set; }
-    
+
     public DbSet<Blog> Blogs { get; set; }
 
-    // The following configures EF to create a Sqlite database file in the
-    // special "local" folder for your platform.
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        var conn = new NpgsqlConnection(
-            "Server=127.0.0.1;Port=5432;Database=dbEfCore;User Id=postgres;Password=postgres;CommandTimeout=20;SearchPath=hello;");
-        conn.StateChange += (sender, e) =>
-        {
-            Debug.WriteLine($"CNX origin ={e.OriginalState} new={e.CurrentState}");
-        };
-
-        options.UseNpgsql(conn)
-            .LogTo(StdOut)
-            .EnableSensitiveDataLogging();
-    }
-
-    private void StdOut(string obj)
-    {
-        Debug.WriteLine(obj);
-    }
+    public OrderContext() {}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
